@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-airplane-seq-id
+      author: Serhii_Buria
+      changes:
+        - createSequence:
+            schemaName: public
+            sequenceName: airplane_id_seq
+            incrementBy: 1
+            startValue: 1
+            minValue: 1
+      rollback:
+        - dropSequence:
+            schemaName: public
+            sequenceName: airplane_id_seq

@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-temporary-points-table
+      author: Serhii_Buria
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: temporary_points
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: latitude
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: longitude
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: spanHeight
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: overflightSpeed
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: flightDirection
+                  type: double precision
+      rollback:
+        - dropTable:
+            schemaName: public
+            tableName: temporary_points

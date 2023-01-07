@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-way-points-table
+      author: Serhii_Buria
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: way_points
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: latitude
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: longitude
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: spanHeight
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: overflightSpeed
+                  type: double precision
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            schemaName: public
+            tableName: way_points

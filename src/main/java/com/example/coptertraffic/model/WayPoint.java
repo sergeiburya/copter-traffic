@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "way_points")
 public class WayPoint {
     @Id
+    private Long id;
     private double latitude;
     private double longitude;
     private double spanHeight;

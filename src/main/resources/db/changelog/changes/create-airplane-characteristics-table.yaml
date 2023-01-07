@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-airplane-characteristics-table
+      author: Serhii_Buria
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: airplane_characteristics
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: maxSpeed
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: acceleration
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: speedOfChangeAltitude
+                  type: double precision
+                  constraints:
+                    nullable: false
+              - column:
+                  name: speedOfChangeCourse
+                  type: double precision
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            schemaName: public
+            tableName: airplane_characteristics
