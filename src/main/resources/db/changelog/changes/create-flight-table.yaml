@@ -19,13 +19,13 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: wayPoints
-                  type: double precision
+                  name: way_points_id
+                  type: bigint
                   constraints:
                     nullable: false
               - column:
-                  name: passedPoints
-                  type: double precision
+                  name: passed_points_id
+                  type: bigint
                   constraints:
                     nullable: false
       rollback:

@@ -1,15 +1,19 @@
 package com.example.coptertraffic.model;
 
 import lombok.Data;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "airplane_characteristics")
 public class AirplaneCharacteristics {
     @Id
+    @GeneratedValue(generator = "airplane_characteristics_id_seq",
+            strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "airplane_characteristics_id_seq",
+            sequenceName = "airplane_characteristics_id_seq",
+            allocationSize = 1)
     private Long id;
     private double maxSpeed;
     private double acceleration;

@@ -2,20 +2,26 @@ databaseChangeLog:
   - include:
       file: /db/changelog/changes/create-way-point-seq.yaml
   - include:
-      file: /db/changelog/changes/create-temporary-point-seq.yaml
-  - include:
-      file: /db/changelog/changes/create-flight-seq.yaml
-  - include:
-      file: /db/changelog/changes/create-airplane-characteristics-seq.yaml
-  - include:
-      file: /db/changelog/changes/create-airplane-seq.yaml
-  - include:
       file: /db/changelog/changes/create-way-point-table.yaml
+  - include:
+      file: /db/changelog/changes/create-temporary-point-seq.yaml
   - include:
       file: /db/changelog/changes/create-temporary-point-table.yaml
   - include:
+      file: /db/changelog/changes/create-flight-seq.yaml
+  - include:
       file: /db/changelog/changes/create-flight-table.yaml
+  - include:
+      file: /db/changelog/changes/create-flights-passed-points-table.yaml
+  - include:
+      file: /db/changelog/changes/create-flights-way-points-table.yaml
+  - include:
+      file: /db/changelog/changes/create-airplane-characteristics-seq.yaml
   - include:
       file: /db/changelog/changes/create-airplane-characteristics-table.yaml
   - include:
+      file: /db/changelog/changes/create-airplane-seq.yaml
+  - include:
       file: /db/changelog/changes/create-airplane-table.yaml
+  - include:
+      file: /db/changelog/changes/create-airplanes-flights-table.yaml

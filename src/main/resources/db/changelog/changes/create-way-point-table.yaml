@@ -24,12 +24,12 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: spanHeight
+                  name: span_height
                   type: double precision
                   constraints:
                     nullable: false
               - column:
-                  name: overflightSpeed
+                  name: overflight_speed
                   type: double precision
                   constraints:
                     nullable: false

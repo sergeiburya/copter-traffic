@@ -14,7 +14,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: maxSpeed
+                  name: max_speed
                   type: double precision
                   constraints:
                     nullable: false
@@ -24,12 +24,12 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: speedOfChangeAltitude
+                  name: speed_of_change_altitude
                   type: double precision
                   constraints:
                     nullable: false
               - column:
-                  name: speedOfChangeCourse
+                  name: speed_of_change_course
                   type: double precision
                   constraints:
                     nullable: false

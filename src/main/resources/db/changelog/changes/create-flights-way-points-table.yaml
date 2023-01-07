@@ -1,34 +1,24 @@
 databaseChangeLog:
   - changeSet:
-      id: create-airplanes-table
+      id: create-flights-way-points-table
       author: Serhii_Buria
       changes:
         - createTable:
             schemaName: public
-            tableName: airplanes
+            tableName: flights_way_points
             columns:
               - column:
-                  name: id
+                  name: flight_id
                   type: bigint
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: characteristics_id
-                  type: bigint
-                  constraints:
-                    nullable: false
-              - column:
-                  name: position_id
-                  type: bigint
-                  constraints:
-                    nullable: false
-              - column:
-                  name: airplanes_flights
+                  name: way_points_id
                   type: bigint
                   constraints:
                     nullable: false
       rollback:
         - dropTable:
             schemaName: public
-            tableName: airplanes
+            tableName: flights_way_points

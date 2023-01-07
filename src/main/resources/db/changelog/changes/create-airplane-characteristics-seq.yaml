@@ -5,11 +5,11 @@ databaseChangeLog:
       changes:
         - createSequence:
             schemaName: public
-            sequenceName: airplane-characteristics_id_seq
+            sequenceName: airplane_characteristics_id_seq
             incrementBy: 1
             startValue: 1
             minValue: 1
       rollback:
         - dropSequence:
             schemaName: public
-            sequenceName: airplane-characteristics_id_seq
+            sequenceName: airplane_characteristics_id_seq
