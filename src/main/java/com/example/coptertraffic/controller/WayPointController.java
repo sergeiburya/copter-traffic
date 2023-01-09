@@ -5,10 +5,15 @@ import com.example.coptertraffic.dto.request.WayPointRequestDto;
 import com.example.coptertraffic.dto.response.WayPointResponseDto;
 import com.example.coptertraffic.model.WayPoint;
 import com.example.coptertraffic.service.WayPointService;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/way-point")
@@ -29,8 +34,8 @@ public class WayPointController {
 
     @GetMapping("/{id}")
     public WayPointResponseDto getById(@PathVariable Long id) {
-        WayPoint wayPointServiceById = wayPointService.getById(id);
-        return wayPointMapper.toResponseDto(wayPointServiceById);
+        WayPoint wayPointById = wayPointService.getById(id);
+        return wayPointMapper.toResponseDto(wayPointById);
     }
 
     @DeleteMapping("/{id}")

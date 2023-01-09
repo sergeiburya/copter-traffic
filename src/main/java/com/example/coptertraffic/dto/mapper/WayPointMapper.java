@@ -17,12 +17,12 @@ public class WayPointMapper {
         return wayPointResponseDto;
     }
 
-    public WayPoint toModel(WayPointRequestDto wayPointResponseDto) {
+    public WayPoint toModel(WayPointRequestDto requestDto) {
         WayPoint wayPoint = new WayPoint();
-        wayPoint.setLatitude(wayPointResponseDto.getLatitude());
-        wayPoint.setLongitude(wayPointResponseDto.getLongitude());
-        wayPoint.setSpanHeight(wayPointResponseDto.getSpanHeight());
-        wayPoint.setOverflightSpeed(wayPointResponseDto.getOverflightSpeed());
+        wayPoint.setLatitude(requestDto.getLatitude());
+        wayPoint.setLongitude(requestDto.getLongitude());
+        wayPoint.setSpanHeight(requestDto.getSpanHeight());
+        wayPoint.setOverflightSpeed(requestDto.getOverflightSpeed());
         return wayPoint;
     }
 }

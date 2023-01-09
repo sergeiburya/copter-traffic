@@ -9,5 +9,4 @@ class CopterTrafficApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
