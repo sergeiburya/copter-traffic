@@ -27,7 +27,7 @@ public class TemporaryPointController {
         this.pointMapper = pointMapper;
     }
 
-    @PostMapping("add-temporary-point")
+    @PostMapping("/add-temporary-point")
     public TemporaryPointResponseDto save(@RequestBody TemporaryPointRequestDto requestDto) {
         TemporaryPoint temporaryPoint = temporaryPointService.save(
                 pointMapper.toModel(requestDto));
