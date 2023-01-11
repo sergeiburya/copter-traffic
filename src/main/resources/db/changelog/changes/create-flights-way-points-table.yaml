@@ -5,7 +5,7 @@ databaseChangeLog:
       changes:
         - createTable:
             schemaName: public
-            tableName: flights_way_points
+            tableName: flights_waypoints
             columns:
               - column:
                   name: flight_id

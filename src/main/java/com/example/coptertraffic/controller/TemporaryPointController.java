@@ -1,6 +1,6 @@
 package com.example.coptertraffic.controller;
 
-import com.example.coptertraffic.dto.mapper.TemporaryPointMapper;
+import com.example.coptertraffic.dto.mapper.impl.TemporaryPointMapperImpl;
 import com.example.coptertraffic.dto.request.TemporaryPointRequestDto;
 import com.example.coptertraffic.dto.response.TemporaryPointResponseDto;
 import com.example.coptertraffic.model.TemporaryPoint;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/temporary-point")
 public class TemporaryPointController {
     private final TemporaryPointService temporaryPointService;
-    private final TemporaryPointMapper pointMapper;
+    private final TemporaryPointMapperImpl pointMapper;
 
     public TemporaryPointController(TemporaryPointService temporaryPointService,
-                                    TemporaryPointMapper pointMapper) {
+                                    TemporaryPointMapperImpl pointMapper) {
         this.temporaryPointService = temporaryPointService;
         this.pointMapper = pointMapper;
     }
@@ -30,14 +30,14 @@ public class TemporaryPointController {
     @PostMapping("/add-temporary-point")
     public TemporaryPointResponseDto save(@RequestBody TemporaryPointRequestDto requestDto) {
         TemporaryPoint temporaryPoint = temporaryPointService.save(
-                pointMapper.toModel(requestDto));
-        return pointMapper.toResponseDto(temporaryPoint);
+                pointMapper.mapToModel(requestDto));
+        return pointMapper.mapToDto(temporaryPoint);
     }
 
     @GetMapping("/{id}")
     public TemporaryPointResponseDto getById(@PathVariable Long id) {
         TemporaryPoint pointById = temporaryPointService.getById(id);
-        return pointMapper.toResponseDto(pointById);
+        return pointMapper.mapToDto(pointById);
     }
 
     @DeleteMapping("/{id}")
@@ -49,15 +49,15 @@ public class TemporaryPointController {
     public List<TemporaryPointResponseDto> findAll() {
         return temporaryPointService.findAll()
                 .stream()
-                .map(pointMapper::toResponseDto)
+                .map(pointMapper::mapToDto)
                 .collect(Collectors.toList());
     }
 
     @PostMapping("/{id}")
-    public TemporaryPointResponseDto update(@PathVariable long id,
+    public TemporaryPointResponseDto update(@PathVariable Long id,
                                             @RequestBody TemporaryPointRequestDto requestDto) {
-        TemporaryPoint temporaryPoint = pointMapper.toModel(requestDto);
+        TemporaryPoint temporaryPoint = pointMapper.mapToModel(requestDto);
         temporaryPoint.setId(id);
-        return pointMapper.toResponseDto(temporaryPointService.save(temporaryPoint));
+        return pointMapper.mapToDto(temporaryPointService.save(temporaryPoint));
     }
 }

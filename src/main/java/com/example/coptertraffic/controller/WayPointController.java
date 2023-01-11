@@ -1,6 +1,6 @@
 package com.example.coptertraffic.controller;
 
-import com.example.coptertraffic.dto.mapper.WayPointMapper;
+import com.example.coptertraffic.dto.mapper.impl.WayPointMapperImpl;
 import com.example.coptertraffic.dto.request.WayPointRequestDto;
 import com.example.coptertraffic.dto.response.WayPointResponseDto;
 import com.example.coptertraffic.model.WayPoint;
@@ -19,23 +19,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/way-point")
 public class WayPointController {
     private final WayPointService wayPointService;
-    private final WayPointMapper wayPointMapper;
+    private final WayPointMapperImpl wayPointMapperImpl;
 
-    public WayPointController(WayPointService wayPointService, WayPointMapper wayPointMapper) {
+    public WayPointController(WayPointService wayPointService,
+                              WayPointMapperImpl wayPointMapperImpl) {
         this.wayPointService = wayPointService;
-        this.wayPointMapper = wayPointMapper;
+        this.wayPointMapperImpl = wayPointMapperImpl;
     }
 
     @PostMapping("/add-way-point")
     public WayPointResponseDto save(@RequestBody WayPointRequestDto requestDto) {
-        WayPoint wayPoint = wayPointService.save(wayPointMapper.toModel(requestDto));
-        return wayPointMapper.toResponseDto(wayPoint);
+        WayPoint wayPoint = wayPointService.save(wayPointMapperImpl.mapToModel(requestDto));
+        return wayPointMapperImpl.mapToDto(wayPoint);
     }
 
     @GetMapping("/{id}")
     public WayPointResponseDto getById(@PathVariable Long id) {
         WayPoint wayPointById = wayPointService.getById(id);
-        return wayPointMapper.toResponseDto(wayPointById);
+        return wayPointMapperImpl.mapToDto(wayPointById);
     }
 
     @DeleteMapping("/{id}")
@@ -46,16 +47,16 @@ public class WayPointController {
     @PostMapping("/{id}")
     public WayPointResponseDto update(@PathVariable Long id,
                                       @RequestBody WayPointRequestDto requestDto) {
-        WayPoint wayPoint = wayPointMapper.toModel(requestDto);
+        WayPoint wayPoint = wayPointMapperImpl.mapToModel(requestDto);
         wayPoint.setId(id);
-        return wayPointMapper.toResponseDto(wayPointService.save(wayPoint));
+        return wayPointMapperImpl.mapToDto(wayPointService.save(wayPoint));
     }
 
     @GetMapping("/findAll")
     public List<WayPointResponseDto> findAll() {
         return wayPointService.findAll()
                 .stream()
-                .map(wayPointMapper::toResponseDto)
+                .map(wayPointMapperImpl::mapToDto)
                 .collect(Collectors.toList());
     }
 }

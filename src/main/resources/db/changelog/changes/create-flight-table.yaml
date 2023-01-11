@@ -22,12 +22,12 @@ databaseChangeLog:
                   name: way_points_id
                   type: bigint
                   constraints:
-                    nullable: false
+                    nullable: true
               - column:
                   name: passed_points_id
                   type: bigint
                   constraints:
-                    nullable: false
+                    nullable: true
       rollback:
         - dropTable:
             schemaName: public
