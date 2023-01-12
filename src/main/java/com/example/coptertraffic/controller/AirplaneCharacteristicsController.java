@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/airplane-characteristic")
+@RequestMapping("/airplane-characteristics")
 public class AirplaneCharacteristicsController {
     private final AirplaneCharacteristicsService characteristicsService;
     private final AirplaneCharacteristicsMapper characteristicsMapper;
